@@ -24,6 +24,11 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               {{ i18n "reading_time" .ReadingTime }}
             </span>
+            {{ if eq .Site.Language.Lang "zh-cn" }}
+            <span class="post-word-count"> | 🍉  {{ .WordCount }} 字  </span>
+            {{ else }}
+            <span class="post-word-count"> | 🍉  {{ .WordCount }} words  </span>
+            {{ end }}
           </div>
           {{ with .GetTerms "authors" }}{{ partial "taxonomy/authors.html" . }}{{ end }}
           {{ with .GetTerms "categories" }}{{ partial "taxonomy/categories.html" . }}{{ end }}
